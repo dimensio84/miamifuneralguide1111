@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import LocationCard from '../components/LocationCard.astro';
+
+const funeralHomes = [
+  {
+    name: "Caballero Rivero Woodlawn",
+    address: "3260 SW 8th St, Miami, FL 33135",
+    phone: "(305) 446-8626",
+    description: "One of Miami's oldest and most respected funeral homes, serving families since 1926 with dignity and compassion.",
+    website: "https://www.dignitymemorial.com/funeral-homes/miami-fl/caballero-rivero-woodlawn-funeral-home/4167"
+  },
+  {
+    name: "Van Orsdel Funeral & Cremation Services",
+    address: "4600 SW 8th St, Coral Gables, FL 33134",
+    phone: "(305) 446-4412",
+    description: "A family-owned funeral home providing traditional funeral services, cremation, and pre-planning options.",
+    website: "https://www.vanorsdel.com/"
+  },
+  {
+    name: "Bernardo Garcia Funeral Homes",
+    address: "12050 SW 117th Ave, Miami, FL 33186",
+    phone: "(305) 971-2300",
+    description: "Offering personalized funeral services with a focus on Hispanic traditions and customs.",
+    website: "https://www.garciafuneralhomes.com/"
+  }
+];
+---
+
+<Layout 
+  title="Funeral Homes"
+  description="Comprehensive directory of funeral homes in Miami-Dade County, Florida">
+  <PageHeader
+    title="Miami Funeral Homes"
+    description="Find trusted funeral homes in Miami-Dade County. Each listing includes contact information and service details to help you make an informed decision."
+  />
+
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      {funeralHomes.map(home => (
+        <LocationCard {...home} />
+      ))}
+    </div>
+
+    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-12">
+      <h2 class="text-xl font-semibold mb-4">Looking to List Your Funeral Home?</h2>
+      <p class="mb-4">
+        Reach more families in need by listing your funeral home on Miami Funeral Guide. 
+        We offer premium placement and detailed business profiles.
+      </p>
+      <a href="mailto:contact@serenefarewells.com" class="inline-block bg-yellow-500 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-400 transition">
+        List Your Business
+      </a>
+    </div>
+  </div>
+</Layout>

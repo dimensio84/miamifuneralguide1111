@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const steps = [
+  {
+    title: "Document Your Wishes",
+    items: [
+      "Type of service (traditional, cremation, memorial)",
+      "Location preferences",
+      "Religious or cultural considerations",
+      "Music and readings selections",
+      "Burial or cremation preferences"
+    ]
+  },
+  {
+    title: "Financial Planning",
+    items: [
+      "Compare funeral home prices",
+      "Consider pre-payment options",
+      "Review insurance policies",
+      "Set up a dedicated savings account",
+      "Discuss costs with family members"
+    ]
+  },
+  {
+    title: "Legal Matters",
+    items: [
+      "Prepare or update your will",
+      "Assign power of attorney",
+      "Create an advance directive",
+      "List important documents",
+      "Share information with family"
+    ]
+  },
+  {
+    title: "Personal Touches",
+    items: [
+      "Write your own obituary",
+      "Select photos for display",
+      "Choose memorial donations",
+      "Record special messages",
+      "Create a memory book"
+    ]
+  }
+];
+
+const benefits = [
+  "Reduce emotional burden on family",
+  "Lock in current prices",
+  "Ensure your wishes are followed",
+  "Prevent family conflicts",
+  "Peace of mind for you and your loved ones"
+];
+---
+
+<Layout 
+  title="Pre-Planning"
+  description="Guide to pre-planning funeral arrangements in Miami">
+  <PageHeader
+    title="Funeral Pre-Planning Guide"
+    description="Take control of your final arrangements and provide peace of mind for your loved ones"
+  />
+
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      {steps.map(step => (
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h2 class="text-xl font-semibold mb-4">{step.title}</h2>
+          <ul class="space-y-2">
+            {step.items.map(item => (
+              <li class="flex items-start">
+                <span class="text-yellow-500 mr-2">•</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-12">
+      <h2 class="text-xl font-semibold mb-4">Benefits of Pre-Planning</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {benefits.map(benefit => (
+          <div class="bg-white p-4 rounded-lg flex items-center">
+            <svg class="w-5 h-5 text-yellow-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>{benefit}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+      <h2 class="text-xl font-semibold mb-4">Ready to Start Pre-Planning?</h2>
+      <p class="text-gray-700 mb-4">
+        Our network of funeral homes can help you create a comprehensive pre-planning package 
+        that meets your needs and budget.
+      </p>
+      <div class="flex space-x-4">
+        <a href="/funeral-homes" class="bg-yellow-500 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-400 transition">
+          Find a Funeral Home
+        </a>
+        <a href="/costs" class="bg-slate-800 text-white px-6 py-2 rounded-lg font-semibold hover:bg-slate-700 transition">
+          View Cost Guide
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>

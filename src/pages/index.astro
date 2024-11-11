@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    title: "Funeral Homes",
+    description: "Find comprehensive listings of funeral homes in Miami-Dade County",
+    link: "/funeral-homes"
+  },
+  {
+    title: "Cemeteries",
+    description: "Explore Miami's cemeteries and memorial parks",
+    link: "/cemeteries"
+  },
+  {
+    title: "Legal Requirements",
+    description: "Learn about Florida's funeral and burial regulations",
+    link: "/legal-requirements"
+  },
+  {
+    title: "Cost Information",
+    description: "Understanding funeral and cremation costs in Miami",
+    link: "/costs"
+  },
+  {
+    title: "Grief Support",
+    description: "Connect with local grief counseling and support groups",
+    link: "/grief-support"
+  },
+  {
+    title: "Pre-Planning",
+    description: "Guide to pre-planning funeral arrangements",
+    link: "/pre-planning"
+  }
+];
+---
+
+<Layout title="Welcome">
+	<div class="container mx-auto px-4 py-8">
+		<section class="text-center mb-12">
+			<h1 class="text-4xl font-bold mb-4">Miami Funeral Guide</h1>
+			<p class="text-xl text-gray-600 max-w-2xl mx-auto">
+				Your comprehensive resource for funeral and cremation services in Miami, Florida.
+				We're here to help you navigate this difficult time with clear, reliable information.
+			</p>
+		</section>
+
+		<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+			{services.map(service => (
+				<a href={service.link} class="block p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition">
+					<h2 class="text-xl font-semibold mb-2">{service.title}</h2>
+					<p class="text-gray-600">{service.description}</p>
+				</a>
+			))}
+		</section>
+
+		<section class="bg-slate-800 text-white rounded-lg p-8 text-center">
+			<h2 class="text-2xl font-bold mb-4">Are you a Funeral Service Provider?</h2>
+			<p class="mb-6">
+				Reach families in need by advertising your services on Miami's most comprehensive funeral guide.
+			</p>
+			<a href="mailto:contact@serenefarewells.com" class="inline-block bg-yellow-500 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition">
+				Advertise With Us
+			</a>
+		</section>
+	</div>
+</Layout>

@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+
+const posts = await getCollection('blog');
+---
+
+<Layout 
+  title="Blog"
+  description="Articles and resources about funeral planning, grief support, and related topics">
+  <PageHeader
+    title="Funeral Planning Resources & Insights"
+    description="Expert articles and guides to help you navigate funeral planning and grief"
+  />
+
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      {posts.map(post => (
+        <article class="bg-white rounded-lg shadow-md overflow-hidden">
+          {post.data.image && (
+            <img 
+              src={post.data.image} 
+              alt={post.data.title}
+              class="w-full h-48 object-cover"
+            />
+          )}
+          <div class="p-6">
+            <h2 class="text-xl font-semibold mb-2">
+              <a href={`/blog/${post.slug}`} class="hover:text-yellow-600">
+                {post.data.title}
+              </a>
+            </h2>
+            <p class="text-gray-600 mb-4">{post.data.description}</p>
+            <div class="flex flex-wrap gap-2">
+              {post.data.tags?.map(tag => (
+                <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded-full text-sm">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</Layout>

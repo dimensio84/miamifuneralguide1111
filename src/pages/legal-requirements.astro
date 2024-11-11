@@ -1,0 +1,79 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const requirements = [
+  {
+    title: "Death Certificate",
+    details: [
+      "Must be filed within 5 days of death",
+      "Required for final disposition",
+      "Multiple certified copies recommended",
+      "Can be obtained from the Florida Department of Health"
+    ]
+  },
+  {
+    title: "Burial Transit Permit",
+    details: [
+      "Required for transportation and burial/cremation",
+      "Issued by local registrar",
+      "Must be obtained before final disposition",
+      "Valid for 7 days from date of death"
+    ]
+  },
+  {
+    title: "Embalming Laws",
+    details: [
+      "Not required by Florida law",
+      "May be necessary for public viewing",
+      "Required for interstate transportation",
+      "Alternative preservation methods available"
+    ]
+  },
+  {
+    title: "Cremation Authorization",
+    details: [
+      "Written authorization required",
+      "48-hour waiting period after death",
+      "Medical examiner approval needed",
+      "Next of kin must provide consent"
+    ]
+  }
+];
+---
+
+<Layout 
+  title="Legal Requirements"
+  description="Understanding Florida's legal requirements for funeral arrangements">
+  <PageHeader
+    title="Legal Requirements"
+    description="Essential information about Florida's funeral and burial regulations"
+  />
+
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      {requirements.map(req => (
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h2 class="text-xl font-semibold mb-4">{req.title}</h2>
+          <ul class="space-y-2">
+            {req.details.map(detail => (
+              <li class="flex items-start">
+                <span class="text-yellow-500 mr-2">•</span>
+                {detail}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-12">
+      <h2 class="text-xl font-semibold mb-4">Important Note</h2>
+      <p class="text-gray-700">
+        This information is provided as a general guide. Laws and requirements may change. 
+        We recommend consulting with a licensed funeral director or legal professional for 
+        the most current requirements specific to your situation.
+      </p>
+    </div>
+  </div>
+</Layout>

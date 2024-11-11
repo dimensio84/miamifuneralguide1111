@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import LocationCard from '../components/LocationCard.astro';
+
+const cemeteries = [
+  {
+    name: "Woodlawn Park Cemetery",
+    address: "3260 SW 8th St, Miami, FL 33135",
+    phone: "(305) 446-8626",
+    description: "Historic cemetery established in 1913, featuring beautiful grounds and various memorial options.",
+    website: "https://www.dignitymemorial.com/funeral-homes/miami-fl/caballero-rivero-woodlawn-funeral-home/4167"
+  },
+  {
+    name: "Miami Memorial Park",
+    address: "6200 SW 77th Ave, Miami, FL 33143",
+    phone: "(305) 661-2424",
+    description: "Peaceful memorial park offering traditional burial plots, mausoleums, and cremation gardens.",
+    website: "https://www.miamimemorialpark.com/"
+  },
+  {
+    name: "Graceland Memorial Park",
+    address: "4420 SW 8th St, Miami, FL 33134",
+    phone: "(305) 443-2591",
+    description: "Serene cemetery grounds with a variety of burial options and memorial features.",
+    website: "https://www.dignitymemorial.com/funeral-homes/miami-fl/graceland-memorial-park-north/4827"
+  }
+];
+---
+
+<Layout 
+  title="Cemeteries"
+  description="Directory of cemeteries and memorial parks in Miami-Dade County, Florida">
+  <PageHeader
+    title="Miami Cemeteries"
+    description="Explore Miami's cemeteries and memorial parks. Find information about burial options, memorial features, and contact details."
+  />
+
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      {cemeteries.map(cemetery => (
+        <LocationCard {...cemetery} />
+      ))}
+    </div>
+
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-12">
+      <h2 class="text-xl font-semibold mb-4">Important Information</h2>
+      <ul class="list-disc list-inside space-y-2 text-gray-700">
+        <li>Visit the cemetery in person to view available plots and memorial options</li>
+        <li>Ask about perpetual care and maintenance programs</li>
+        <li>Inquire about pre-planning options and payment plans</li>
+        <li>Review the cemetery's rules regarding monuments and decorations</li>
+      </ul>
+    </div>
+
+    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-6">
+      <h2 class="text-xl font-semibold mb-4">List Your Cemetery</h2>
+      <p class="mb-4">
+        Help families find your cemetery by listing it on Miami Funeral Guide. 
+        We offer detailed profiles and premium placement options.
+      </p>
+      <a href="mailto:contact@serenefarewells.com" class="inline-block bg-yellow-500 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-400 transition">
+        List Your Cemetery
+      </a>
+    </div>
+  </div>
+</Layout>
